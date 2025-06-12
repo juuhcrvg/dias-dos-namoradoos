@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dia dos Namorados</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+  </head>
+
+  <body class="bg-page">
+    <div id="openModalBase" class="base-modal">
+      <div id="openModal" class="modal">
+        <div class="exit">
+          <img class="btnCloseModal" src="./img/exit.svg" alt="Fechar" />
+        </div>
+
+        <div class="content">
+          <video autoplay muted loop id="video-bg">
+            <source src="./guguu.mp4" type="video/mp4" />
+            Seu navegador não suporta vídeo em HTML5.
+          </video>
+
+          <header class="header-content">
+            <h1>FELIZ DIA DOS NAMORADOS 😍</h1>
+            <p>"Eu encontrei alguém que quero incomodar para o resto da vida.
+😌😏💘"</p>
+          </header>
+
+          <main class="gallery-container">
+            <div class="card-foto">
+              <img src="./img/GUGU1.jpg" alt="IMG_7772.JPG" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU10.jpg" alt="IMG_8703.PNG" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU11.jpg" alt="IMG_8816.JPG" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU12.jpg" alt="IMG_8883.JPG" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU14.jpg" alt="IMG_8981.JPG" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU13.jpg" alt="IMG_6342.HEIC" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU4.jpg" alt="IMG_6362.HEIC" />
+            </div>
+            <div class="card-foto">
+              <img src="./img/GUGU6.jpg" alt="IMG_7772.JPG" />
+            </div>
+          </main>
+
+          <div class="surprise-section">
+            <button id="surpriseBtn">
+              Clique para uma surpresa 💖
+            </button>
+
+            <div class="heart-emoji">💖</div>
+            <p class="love-phrase">
+              Cada momento ao seu lado é inesquecível💌
+            </p>
+
+            <div id="message" class="surprise-message hidden">
+             "O amor em um relacionamento não é encontrar alguém perfeito, mas amar as imperfeições e construir algo extraordinário com elas."
+              <div class="youtube-video-container">
+          <iframe width="560" height="315" src="https://www.youtube.com/embed/fsAiH0Yf07M?si=pg2fDKne6tqNwdYC" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <main class="initial-main">
+      <h1>😍 Juliana e Augusto😍</h1>
+      <p> <strong>Ao infinito e além, meu amor</strong> ! 🚀💖</p>
+
+      <button id="openModalBtn">
+😎 Amor, Clique Aqui 
+😎</button>
+    </main>
+
+    <script src="./src/js/script.js"></script>
+     <script>
+      // Script original do modal
+      const openModalBtn = document.getElementById("openModalBtn");
+      const openModalBase = document.getElementById("openModalBase");
+      const btnCloseModal = document.querySelector(".btnCloseModal");
+
+      openModalBtn.addEventListener("click", () => {
+        openModalBase.style.display = "flex";
+      });
+
+      // Funções para parar o vídeo do YouTube
+      const stopYouTubeVideo = () => {
+        const youtubePlayer = document.getElementById("youtube-player");
+        if (youtubePlayer) {
+          youtubePlayer.src = ""; // Limpa o src para parar a reprodução
+        }
+      };
+
+      btnCloseModal.addEventListener("click", () => {
+        openModalBase.style.display = "none";
+        clearInterval(heartsInterval);
+        heartsInterval = null;
+        stopYouTubeVideo(); // Para o vídeo ao fechar o modal
+      });
+
+      openModalBase.addEventListener("click", (event) => {
+        if (event.target === openModalBase) {
+          openModalBase.style.display = "none";
+          clearInterval(heartsInterval);
+          heartsInterval = null;
+          stopYouTubeVideo(); // Para o vídeo ao clicar fora do modal
+        }
+      });
+
+      // Script para o botão de surpresa e corações
+      const surpriseBtn = document.getElementById("surpriseBtn");
+      const message = document.getElementById("message");
+      const youtubePlayer = document.getElementById("youtube-player");
+
+      // *** SUBSTITUA 'SEU_VIDEO_ID_AQUI' PELO ID REAL DA MÚSICA DO YOUTUBE ***
+      const youtubeVideoId = "dQw4w9WgXcQ"; // Exemplo: Never Gonna Give You Up - Rick Astley
+
+      surpriseBtn.addEventListener("click", () => {
+        message.classList.remove("hidden");
+        youtubePlayer.src = `https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&mute=1&controls=1&modestbranding=1&rel=0`;
+
+        if (!heartsInterval) {
+          heartsInterval = setInterval(createHeart, 400);
+        }
+      });
+
+      function createHeart() {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        // AQUI ESTÁ A MUDANÇA: Usando o emoji de coração branco 🤍
+        heart.textContent = "🤍";
+        // Se você quiser rosa, pode usar '🩷' (Heart hands) ou '💖' (Sparkling heart)
+        // Se a cor CSS precisar forçar (para um '♥' simples, por exemplo), adicione heart.style.color = "white";
+        
+        heart.style.left = Math.random() * 100 + "vw";
+        heart.style.bottom = "0";
+        heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }
+
+      let heartsInterval; // Variável para controlar o intervalo dos corações
+    </script>
+
+  </body>
+</html>

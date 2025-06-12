@@ -1,0 +1,618 @@
+/* ===== RESET ===== */
+
+* {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Estilo para o vídeo de fundo */
+#video-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+/* Estilo para os corações flutuantes */
+.heart {
+  position: fixed;
+  font-size: 30px;
+  /* color: red; // REMOVIDO: Para garantir que o emoji '🤍' apareça branco */
+  animation: floatHearts 5s linear forwards;
+  pointer-events: none; /* Não interfere com cliques */
+  z-index: 9999;
+}
+
+@keyframes floatHearts {
+  0% {
+    transform: translateY(100vh) scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-10vh) scale(1.5);
+    opacity: 0;
+  }
+}
+
+/* Estilos para o corpo da página */
+body {
+ background-image: url(/img/fundo-azul.png);
+   background-repeat: no-repeat; /* Evita que a imagem se repita */
+  background-position: center center; /* Centraliza a imagem */
+  background-size: cover; /* Faz a imagem cobrir o elemento todo */
+
+  color: #ffffff;
+}
+
+/* Estilos da galeria de fotos */
+.gallery-container {
+  padding: 1rem;
+  display: grid;
+  gap: 1rem;
+  max-width: 76rem;
+  margin-left: auto;
+  margin-right: auto;
+  grid-template-columns: repeat(1, minmax(0, 1fr));
+}
+
+@media (min-width: 640px) {
+  .gallery-container {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 768px) {
+  .gallery-container {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .gallery-container {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Estilos dos cards de foto */
+.card-foto {
+  border-radius: 0.5rem;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  background-color: white;
+}
+
+.card-foto img {
+  width: 100%;
+  height: 16rem;
+  object-fit: cover;
+  display: block;
+}
+
+.card-foto:hover {
+  transform: scale(1.05);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+/* Estilos do cabeçalho dentro do modal */
+.header-content {
+  text-align: center;
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  color: #fff;
+}
+
+.header-content h1 {
+  font-size: 2.25rem;
+  font-weight: 700;
+}
+
+.header-content p {
+  font-size: 1.125rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.5rem;
+}
+
+/* Estilos da main inicial (fora do modal) */
+.initial-main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  color: #06024c;
+}
+.initial-main h1 {
+  font-size: 1.7rem;
+  text-align: center;
+}
+.initial-main p {
+  text-align: center;
+}
+
+/* Estilos dos botões gerais */
+button {
+  font-family: "Poppins", sans-serif;
+  height: 3rem;
+  min-width: 25rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 0.15rem solid rgb(255, 39, 39);
+  background-color: transparent;
+  color: rgb(255, 39, 39);
+}
+
+button:hover {
+  background-color: rgb(255, 39, 39);
+  color: white;
+  transition: 300ms;
+}
+
+/* Estilos do botão de surpresa e elementos relacionados */
+.surprise-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 2.5rem;
+  padding-bottom: 2rem;
+}
+
+#surpriseBtn {
+  background: linear-gradient(to right, #ec4899, #a855f7);
+  color: white;
+  font-weight: 700;
+  padding: 0.75rem 1.5rem;
+  border-radius: 9999px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease-in-out;
+  border: none;
+  min-width: auto;
+}
+
+#surpriseBtn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(to right, #d83b8b, #9648e0);
+}
+
+.heart-emoji {
+  margin-top: 1.5rem;
+  animation: bounce 1s infinite;
+  font-size: 3rem;
+  color: #fff;
+}
+@keyframes bounce {
+  0%,
+  100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
+  }
+}
+
+.love-phrase {
+  color: white;
+  margin-top: 0.5rem;
+  font-style: italic;
+}
+
+.surprise-message {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 1.25rem;
+  max-width: 28rem;
+  background-color: white;
+  color: #6d28d9;
+  padding: 1.5rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.youtube-video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  height: 0;
+  overflow: hidden;
+  margin-top: 0.5rem;
+}
+
+.youtube-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hidden {
+  display: none;
+}
+
+/* ====== MODAL ====== */
+
+.base-modal {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  background-color: transparent;
+  z-index: 10000;
+}
+
+.modal {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 1200px;
+  height: 90%;
+  max-height: 90vh;
+  overflow-y: auto;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.exit {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 10001;
+  cursor: pointer;
+}
+
+/* Estilo para o ícone de fechar (X) - AGORA PARA IMAGEM */
+.btnCloseModal {
+  width: 30px;
+  height: 30px;
+  /* Se o SVG for preto e você quiser branco, pode usar: */
+  filter: invert(100%);
+  /* Se o SVG já for branco, remova a linha acima. */
+}
+
+.content {
+  color: white;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
