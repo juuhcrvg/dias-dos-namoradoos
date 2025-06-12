@@ -41,7 +41,7 @@
 
 /* Estilos para o corpo da página */
 body {
- background-image: url (./img/fundo-azul.png);
+ background-image: url(./img/fundo-azul.png);
    background-repeat: no-repeat; /* Evita que a imagem se repita */
   background-position: center center; /* Centraliza a imagem */
   background-size: cover; /* Faz a imagem cobrir o elemento todo */
