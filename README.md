@@ -18,7 +18,7 @@ Este site foi desenvolvido para ser uma surpresa e uma declaração digital de a
 
 Você pode acessar o site diretamente através do GitHub Pages neste link:
 
-[**Acesse Nosso Dia dos Namorados Aqui!**] (https://juuhcrvg.github.io/dias-dos-namoradoos/))
+**Acesse Nosso Dia dos Namorados Aqui!** (https://juuhcrvg.github.io/dias-dos-namoradoos/))
 
 
 ## 🛠️ Tecnologias Utilizadas
@@ -30,9 +30,7 @@ Este projeto foi construído utilizando as bases da web, garantindo leveza e ace
 
 ---
 
-## 💡 Recursos Futuros (Opcional)
-
-Este é apenas o começo da nossa história digital! No futuro, podemos pensar em adicionar:
+## Este é apenas o começo da nossa história digital! No futuro, podemos pensar em adicionar:
 
 * 🖼️ Uma galeria de fotos interativa com nossos momentos mais doces.
 * 🎵 Uma playlist com as músicas que marcaram nossa jornada.
@@ -41,6 +39,6 @@ Este é apenas o começo da nossa história digital! No futuro, podemos pensar e
 
 ---
 
-## ❤️ Feito com Todo Amor por [Juliana Marques/Juuhcrvg] 🎉🤩😘
+## ❤️ Feito com Todo Amor por Juliana Marques/Juuhcrvg🎉🤩😘
 
-Para [Augusto Kakizoe], Feliz Dia dos Namorados! 🥰
+Para Augusto Kakizoe, Feliz Dia dos Namorados! 🥰
